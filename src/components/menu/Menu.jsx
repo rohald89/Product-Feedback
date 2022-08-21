@@ -1,13 +1,8 @@
 import { useSelector } from "react-redux";
 
 const Menu = () => {
-  const { allFeedback } = useSelector((state) => state.feedback);
-  const numberOfSuggestions = allFeedback.reduce((acc, curr) => {
-    if (curr.status === "suggestion") {
-      acc++;
-    }
-    return acc;
-  }, 0);
+  const { suggestions } = useSelector((state) => state.feedback);
+  const numberOfSuggestions = suggestions.length
 
   return (
     <div className="flex justify-between text-white items-center bg-veryDarkBlue w-full px-6 py-2 md:rounded-[10px] md:pl-6 md:pr-4 md:py-4">

@@ -2,12 +2,12 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const FeedbackList = () => {
-  const { filteredFeedback } = useSelector((state) => state.feedback)
+  const { suggestions } = useSelector((state) => state.feedback)
 
     return (
     <div className="flex flex-col space-y-4 pt-8 px-6 bg-lightGrey md:p-0">
         {
-            filteredFeedback.map((feedback) => (
+            suggestions.map((feedback) => (
                 <Link to={`/feedback/${feedback.id}`} key={feedback.id}>
                     <div className="grid grid-cols-2 gap-4 bg-white rounded-[10px] p-6 md:flex md:items-center">
                         <div className="col-span-2 flex flex-col items-start space-y-2 md:flex-1">

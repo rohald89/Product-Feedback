@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { feedback } from "../data";
 
 const initialState = {
-  allFeedback: feedback.filter((item) => item.status === "suggestion"),
-  filteredFeedback: feedback.filter((item) => item.status === "suggestion"),
+  suggestions: feedback.filter((item) => item.status === "suggestion"),
+  inProgress: feedback.filter((item) => item.status !== "suggestion"),
   categories: ["All", "UI", "UX", "Enhancement", "Bug", "Feature"],
   activeCategory: "All",
   statuses: [
@@ -20,11 +20,11 @@ export const feedbackSlice = createSlice({
     changeCategory: (state, action) => {
       state.activeCategory = action.payload;
       if (action.payload.toLowerCase() === "all") {
-        state.filteredFeedback = feedback.filter(
-          (item) => item.status !== "suggestion"
+        state.suggestions = feedback.filter(
+          (item) => item.status === "suggestion"
         );
       } else {
-        state.filteredFeedback = feedback.filter((feedback) => {
+        state.suggestions = feedback.filter((feedback) => {
           return (
             feedback.status === "suggestion" &&
             feedback.category === action.payload.toLowerCase()
