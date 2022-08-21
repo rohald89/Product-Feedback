@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import RoadMapStats from "./RoadMapStats";
-import TagSelection from "./TagSelection";
+import CategoryMenu from "./CategoryMenu";
 
 const Settings = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const Settings = () => {
 
         <aside className={`${isOpen ? "flex" : "hidden"} flex-col p-6 ml-24 bg-lightGrey md:flex md:flex-row md:m-0 md:p-0 md:col-span-2 md:gap-3`}>
             <div className="flex-1 h-[178px]">
-                <TagSelection />
+                <CategoryMenu />
             </div>
             <div className="flex-1">
                 <RoadMapStats />
