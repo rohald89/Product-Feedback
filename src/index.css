@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.heading-xl {
+/* .heading-xl {
   @apply font-bold text-xl tracking-tightest;
 }
 .heading-lg {
@@ -24,4 +24,4 @@
 }
 .body-bold {
   @apply font-bold text-sm;
-}
+} */

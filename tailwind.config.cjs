@@ -31,6 +31,12 @@ module.exports = {
         lightGrey: "#F7F8FD",
         grey: "#F2F4FF",
       },
+      backgroundImage: {
+        "desktop-header":
+          "url('/img/suggestions/desktop/background-header.png')",
+        "tablet-header": "url('/img/suggestions/tablet/background-header.png')",
+        "mobile-header": "url('/img/suggestions/mobile/background-header.png')",
+      },
     },
   },
   plugins: [],
