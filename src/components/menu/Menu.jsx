@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 const Menu = () => {
-  const { feedback } = useSelector((state) => state.feedback);
-  const numberOfSuggestions = feedback.reduce((acc, curr) => {
+  const { allFeedback } = useSelector((state) => state.feedback);
+  const numberOfSuggestions = allFeedback.reduce((acc, curr) => {
     if (curr.status === "suggestion") {
       acc++;
     }

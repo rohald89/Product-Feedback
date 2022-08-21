@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const RoadMapStats = () => {
-  const { statuses, feedback } = useSelector((state) => state.feedback);
+  const { statuses, allFeedback } = useSelector((state) => state.feedback);
 
   return (
     <section className="p-6 bg-white rounded-[10px]">
@@ -13,11 +13,11 @@ const RoadMapStats = () => {
         <div className="space-y-2 text-greyBlue">
             {
                 statuses.map((status, i) =>  (
-                    <div className="flex items-center justify-between">
-                        <div key={i} className={`h-2 w-2 rounded-full bg-${status.color}`}></div>
+                    <div key={i} className="flex items-center justify-between">
+                        <div className={`h-2 w-2 rounded-full bg-${status.color}`}></div>
                         <p className="flex-grow ml-4 text-body-lg">{status.name}</p>
                         <p>
-                            {feedback.reduce((acc, curr) => {
+                            {allFeedback.reduce((acc, curr) => {
                                 if (status.name.toLowerCase() === curr.status) {
                                 acc++;
                                 }
