@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.heading-xl {
+  @apply font-bold text-xl tracking-tightest;
+}
+.heading-lg {
+  @apply font-bold text-lg tracking-tighter;
+}
+.heading-md {
+  @apply font-bold text-md tracking-tighter;
+}
+.heading-sm {
+  @apply font-bold text-sm tracking-tight;
+}
+.body-lg {
+  @apply font-normal text-body-lg;
+}
+.body-md {
+  @apply font-normal text-body-md;
+}
+.body-bold {
+  @apply font-bold text-sm;
+}
