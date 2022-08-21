@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        primary: ["Jost", "sans-serif"],
+        sans: ["Jost", "sans-serif"],
       },
       colors: {
         mainPurple: "#AD1FEA",

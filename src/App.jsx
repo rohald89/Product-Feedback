@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Menu from "./components/menu"
 import Settings from "./components/settings"
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="h-screen md:pt-14 md:px-10 bg-lightGrey">
+    <div className="h-screen flex flex-col bg-lightGrey md:items-start md:gap-6 md:pt-14 md:px-10 lg:flex-row">
         <Settings/>
+        <Menu />
     </div>
     {/* <Routes>
         <Route path="/" element={<Header />} />

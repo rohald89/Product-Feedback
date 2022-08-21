@@ -1,6 +1,6 @@
 const Header = ({isOpen, toggleNav}) => {
   return (
-    <header className="flex h-full justify-between text-white py-4 px-6 bg-mobile-header bg-no-repeat bg-cover md:bg-tablet-header md:p-6 lg:bg-desktop-header md:rounded-[10px] lg:h-[137px]">
+    <header className="flex justify-between text-white py-4 px-6 bg-mobile-header bg-no-repeat bg-cover md:bg-tablet-header md:p-6 lg:bg-desktop-header md:rounded-[10px] lg:h-[137px]">
       <div className="md:mt-auto">
         <h1 className="text-body-md font-bold md:text-lg">Frontend Mentor</h1>
         <p className="text-body-sm font-medium opacity-75 md:text-body-md">
