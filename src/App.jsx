@@ -1,13 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import SuggestionsPage from "./pages/SuggestionsPage"
-import RoadMapPage from "./pages/RooadMapPage"
+import RoadMapPage from "./pages/RoadMapPage"
+import SuggestionDetailPage from "./pages/SuggestionDetailPage"
 
 function App() {
   return (
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<SuggestionsPage />} />
+            <Route path="suggestions" index element={<SuggestionsPage />}/>
+            <Route path="suggestions/:id" index element={<SuggestionDetailPage />}/>
             <Route path="/roadmap" element={<RoadMapPage />} />
         </Routes>
     </BrowserRouter>

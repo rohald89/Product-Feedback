@@ -1,4 +1,4 @@
-import RoadMapBanner from "../components/banner/RoadMapBanner"
+import RoadMapBanner from "../components/roadmap/RoadMapBanner"
 import PageWrapper from "../components/shared/PageWrapper"
 
 const RoadMapPage = () => {

@@ -1,6 +1,6 @@
 import FeedbackList from "../components/suggestionsList"
 import Settings from "../components/settings"
-import SuggestionsBanner from "../components/banner/SuggestionsBanner"
+import SuggestionsBanner from "../components/suggestionsList/SuggestionsBanner"
 import PageWrapper from "../components/shared/PageWrapper"
 
 const SuggestionsPage = () => {

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import Banner from "./Banner";
+import Banner from "../shared/Banner";
 
 const SuggestionsBanner = () => {
   const { suggestions } = useSelector((state) => state.feedback);
 
   return (
-    <Banner className=" px-6 py-2">
+    <Banner className=" px-6 py-2 bg-veryDarkBlue">
         <div className="hidden md:flex md:items-center">
             <img src="/img/suggestions/icon-suggestions.svg" />
             <p className="text-md font-bold ml-2 mr-10">{suggestions.length === 1 ? "1 Suggestion" : suggestions.length + " Suggestions"}</p>
