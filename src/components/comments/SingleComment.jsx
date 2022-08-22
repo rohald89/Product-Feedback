@@ -16,13 +16,15 @@ const SingleComment = ({comment}) => {
                 {comment.content}
             </p>
         </div>
-        <div >
         {
-            comment.replies?.map((reply, i) => (
-                <SingleReply key={i} reply={reply} replyTo={comment.user.name} isLast={i === comment.replies.length - 1} />
-            ))
+            comment.replies && (
+                <div className="mt-2">
+                    {comment.replies.map((reply, i) => (
+                        <SingleReply key={i} reply={reply} replyTo={comment.user.name} isLast={i === comment.replies.length - 1} />
+                    ))}
+                </div>
+            )
         }
-        </div>
     </div>
   )
 }

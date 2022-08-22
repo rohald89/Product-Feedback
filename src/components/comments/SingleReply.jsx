@@ -1,6 +1,6 @@
 const SingleReply = ({reply, replyTo, isLast}) => {
   return (
-          <div className="relative pt-6 pl-6 grid grid-cols-[56px_1fr] gap-y-4 md:grid-cols-[72px_1fr] md:pl-11">
+          <div className="relative pl-6 pt-4 grid grid-cols-[56px_1fr] gap-y-2 md:grid-cols-[72px_1fr] md:pl-11 md:pt-6">
             { !isLast && <div className="bar"></div> }
               <img src={reply.user.image} className="rounded-full h-10 w-10"/>
               <div className="flex justify-between">

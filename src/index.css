@@ -27,7 +27,7 @@
 } */
 
 .bar {
-  @apply absolute w-[1px] bg-greyBlue opacity-10 top-6 md:left-5 md:-top-[40px];
+  @apply absolute w-[1px] bg-grey top-4 md:left-5 md:-top-[40px];
   height: calc(100% + 24px);
 }
 
