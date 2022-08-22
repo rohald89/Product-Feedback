@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
-const FeedbackList = () => {
+const SuggestionsList = () => {
   const { suggestions } = useSelector((state) => state.feedback)
 
     return (
@@ -30,4 +30,4 @@ const FeedbackList = () => {
     </div>
   )
 }
-export default FeedbackList
+export default SuggestionsList

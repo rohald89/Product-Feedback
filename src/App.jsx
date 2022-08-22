@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import FeedbackPage from "./pages/FeedbackPage"
+import SuggestionsPage from "./pages/SuggestionsPage"
+import RoadMapPage from "./pages/RooadMapPage"
 
 function App() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<FeedbackPage />} />
+            <Route path="/" element={<SuggestionsPage />} />
+            <Route path="/roadmap" element={<RoadMapPage />} />
         </Routes>
     </BrowserRouter>
     )
