@@ -16,7 +16,7 @@ const SuggestionDetailPage = () => {
                 <svg className="mr-4" width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L2 5l4-4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                 Go Back
             </Link>
-            <button className="bg-mainBlue py-3 px-4 rounded-[10px]">Edit Feedback</button>
+            <button className="bg-mainBlue py-3 px-4 text-sm rounded-[10px]">Edit Feedback</button>
         </Banner>
         <SingleSuggestion feedback={suggestion}/>
         <CommentsSection comments={suggestion.comments}/>
