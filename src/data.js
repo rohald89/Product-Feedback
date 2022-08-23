@@ -78,6 +78,26 @@ export const feedback = [
               username: "voyager.344",
             },
           },
+          {
+            content:
+              "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
+            replyingTo: "annev1990",
+            user: {
+              image: "/img/user-images/image-ryan.jpg",
+              name: "Ryan Welles",
+              username: "voyager.344",
+            },
+          },
+          {
+            content:
+              "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
+            replyingTo: "annev1990",
+            user: {
+              image: "/img/user-images/image-ryan.jpg",
+              name: "Ryan Welles",
+              username: "voyager.344",
+            },
+          },
         ],
       },
     ],
