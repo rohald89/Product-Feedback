@@ -1,16 +1,19 @@
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import CommentsSection from "../components/comments";
 import AddCommentForm from "../components/comments/AddCommentForm";
 import Banner from "../components/shared/Banner";
 import PageWrapper from "../components/shared/PageWrapper";
 import SingleSuggestion from "../components/suggestionsList/SingleSuggestion";
 
-import { feedback } from "../data";
-
 const SuggestionDetailPage = () => {
-    console.log(feedback)
-    const suggestion = feedback.filter((suggestion) => suggestion.id === Number(useParams().id))[0];
+    const { id } = useParams();
+    const { allFeedback } = useSelector((state) => state.feedback);
 
+    const suggestion = allFeedback.filter((suggestion) => suggestion.id == id)[0];
+
+    console.log(allFeedback)
   return (
     <PageWrapper className="p-6 max-w-3xl">
         <Banner className="mb-6 md:mb-0">

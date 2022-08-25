@@ -2,7 +2,15 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const RoadMapStats = () => {
-  const { statuses, inProgress } = useSelector((state) => state.feedback);
+  const { allFeedback } = useSelector((state) => state.feedback);
+
+  const inProgress = allFeedback.filter((item) => item.status !== "suggestion")
+
+  const statuses = [
+    { name: "Planned", color: "orange" },
+    { name: "In-Progress", color: "purple" },
+    { name: "Live", color: "blue" },
+  ];
 
   return (
     <section className="p-6 bg-white rounded-[10px]">
@@ -14,7 +22,7 @@ const RoadMapStats = () => {
             {
                 statuses.map((status, i) =>  (
                     <div key={i} className="flex items-center justify-between">
-                        <div className={`h-2 w-2 rounded-full bg-${status.color}`}></div>
+                        <div className={`h-2 w-2 rounded-full ${status.color === "orange" ? "bg-mainOrange" : status.color === "purple" ? "bg-mainPurple" : "bg-lightBlue"}`}></div>
                         <p className="flex-grow ml-4 text-body-lg">{status.name}</p>
                         <p>
                             {inProgress.reduce((acc, curr) => {

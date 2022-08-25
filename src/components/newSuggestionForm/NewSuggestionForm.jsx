@@ -1,6 +1,9 @@
-import { useSelector } from "react-redux"
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux"
 import { useFormik } from "formik";
 import * as Yup from "yup";
+
+import { addFeedback } from "../../app/feedbackSlice"
 
 import Dropdown from "../shared/Dropdown"
 import Input from "../shared/Input"
@@ -8,15 +11,19 @@ import TextArea from "../shared/TextArea"
 
 const NewSuggestionForm = () => {
   const {categories} = useSelector(state => state.feedback)
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+
+  const dispatch = useDispatch()
 
   const formik = useFormik({
     initialValues: {
         title: "",
-        category: "",
+        category: selectedCategory,
         description: ""
     },
     onSubmit: values => {
-        console.log(values)
+        values.category = selectedCategory
+        dispatch(addFeedback(values))
     },
     validationSchema: Yup.object({
         title: Yup.string()
@@ -39,17 +46,21 @@ const NewSuggestionForm = () => {
                 description="Add a short, descriptive headline."
                 name="title"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.title}
                 errors={formik.errors.title}
+                touched={formik.touched}
             />
-            <Dropdown title="Category" description="Choose a category for your feedback" options={categories} name="category" onChange={formik.handleChange} value={formik.values.category}/>
+            <Dropdown title="Category" description="Choose a category for your feedback" options={categories} name="category" status={selectedCategory} setStatus={setSelectedCategory}/>
             <TextArea
                 title="Feedback Detail"
                 description="Include any specific comments on what should be improved, added, etc."
                 name="description"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.description}
                 errors={formik.errors.description}
+                touched={formik.touched}
             />
 
             <div className="flex flex-col space-y-4 pt-6 md:flex-row-reverse md:space-y-0 md:gap-4">

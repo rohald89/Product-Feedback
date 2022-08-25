@@ -1,16 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 import { feedback } from "../data";
 
 const initialState = {
-  suggestions: feedback.filter((item) => item.status === "suggestion"),
-  inProgress: feedback.filter((item) => item.status !== "suggestion"),
-  categories: ["All", "UI", "UX", "Enhancement", "Bug", "Feature"],
+  allFeedback: feedback,
+  categories: ["UI", "UX", "Enhancement", "Bug", "Feature"],
   activeCategory: "All",
-  statuses: [
-    { name: "Planned", color: "mainOrange" },
-    { name: "In-Progress", color: "mainPurple" },
-    { name: "Live", color: "lightBlue" },
-  ],
 };
 
 export const feedbackSlice = createSlice({
@@ -19,22 +14,20 @@ export const feedbackSlice = createSlice({
   reducers: {
     changeCategory: (state, action) => {
       state.activeCategory = action.payload;
-      if (action.payload.toLowerCase() === "all") {
-        state.suggestions = feedback.filter(
-          (item) => item.status === "suggestion"
-        );
-      } else {
-        state.suggestions = feedback.filter((feedback) => {
-          return (
-            feedback.status === "suggestion" &&
-            feedback.category === action.payload.toLowerCase()
-          );
-        });
-      }
+    },
+    addFeedback: (state, action) => {
+      const newFeedback = {
+        id: uuidv4(),
+        upvotes: 0,
+        status: "suggestion",
+        comments: [],
+        ...action.payload,
+      };
+      state.allFeedback.push(newFeedback);
     },
   },
 });
 
-export const { changeCategory } = feedbackSlice.actions;
+export const { changeCategory, addFeedback } = feedbackSlice.actions;
 
 export default feedbackSlice.reducer;
