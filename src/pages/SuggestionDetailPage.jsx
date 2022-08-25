@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import CommentsSection from "../components/comments";
 import AddCommentForm from "../components/comments/AddCommentForm";
