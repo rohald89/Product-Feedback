@@ -1,3 +1,9 @@
+export const currentUser = {
+  image: "/img/user-images/image-zena.jpg",
+  name: "Zena Kelley",
+  username: "velvetround",
+};
+
 export const feedback = [
   {
     id: 1,

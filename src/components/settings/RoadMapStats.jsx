@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const RoadMapStats = () => {
-  const { allFeedback } = useSelector((state) => state);
+  const { allFeedback } = useSelector((state) => state.feedback);
 
   const inProgress = allFeedback.filter((item) => item.status !== "suggestion")
 

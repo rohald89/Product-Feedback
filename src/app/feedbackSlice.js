@@ -25,9 +25,21 @@ export const feedbackSlice = createSlice({
       };
       state.allFeedback.push(newFeedback);
     },
+    addComment: (state, action) => {
+      const { id, comment, currentUser } = action.payload;
+      const feedback = state.allFeedback.find((feedback) => feedback.id == id);
+
+      const newComment = {
+        id: uuidv4(),
+        content: comment,
+        user: currentUser,
+      };
+      feedback.comments.push(newComment);
+    },
   },
 });
 
-export const { changeCategory, addFeedback } = feedbackSlice.actions;
+export const { changeCategory, addFeedback, addComment } =
+  feedbackSlice.actions;
 
 export default feedbackSlice.reducer;

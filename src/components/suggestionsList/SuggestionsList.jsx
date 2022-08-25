@@ -3,7 +3,7 @@ import NoSuggestionsFound from "./NoSuggestionsFound"
 import SingleSuggestion from "./SingleSuggestion"
 
 const SuggestionsList = () => {
-  const { allFeedback, activeCategory } = useSelector((state) => state)
+  const { allFeedback, activeCategory } = useSelector((state) => state.feedback)
 
   // Filter the suggestions based on the currently active category
   const suggestions = allFeedback.filter((suggestion) => {
