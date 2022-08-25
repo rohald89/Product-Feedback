@@ -10,7 +10,7 @@ const AddCommentForm = () => {
         ></textarea>
         <div className="flex justify-between items-center">
             <p className="text-greyBlue text-body-sm md:text-sm">250 Characters left</p>
-            <button className="bg-mainPurple text-white text-sm font-bold py-3 px-6 rounded-[10px]">Post Comment</button>
+            <button className="bg-mainPurple text-white text-sm font-bold py-3 px-6 rounded-[10px] transition hover:bg-mainPurple-hover">Post Comment</button>
         </div>
     </form>
   )

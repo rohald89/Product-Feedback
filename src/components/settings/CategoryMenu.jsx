@@ -12,7 +12,7 @@ const CategoryMenu = () => {
                 <button
                 aria-label={`Change category to ${category}`}
                 key={i}
-                className={`${category === activeCategory ? "bg-mainBlue text-white" : "bg-grey text-mainBlue"} px-4 py-2 font-bold text-body-sm  rounded-[10px]`}
+                className={`${category === activeCategory ? "bg-mainBlue text-white" : "bg-grey text-mainBlue"} px-4 py-2 font-bold text-body-sm  rounded-[10px] transition hover:bg-grey-hover hover:text-mainBlue`}
                 onClick={() => dispatch(changeCategory(category))}
                 >
                     {category}

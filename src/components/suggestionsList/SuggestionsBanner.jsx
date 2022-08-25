@@ -13,7 +13,7 @@ const SuggestionsBanner = () => {
             <p className="text-md font-bold ml-2 mr-10">{suggestions.length === 1 ? "1 Suggestion" : suggestions.length + " Suggestions"}</p>
         </div>
         <p className="flex-1">Sort by: <span className="font-bold">Most Upvotes</span></p>
-        <button className="bg-mainPurple py-3 px-4 rounded-[10px]" onClick={() => navigate('/suggestions/new')}>+ Add Feedback</button>
+        <button className="bg-mainPurple py-3 px-4 rounded-[10px] transition hover:bg-mainPurple-hover" onClick={() => navigate('/suggestions/new')}>+ Add Feedback</button>
     </Banner>
   )
 }

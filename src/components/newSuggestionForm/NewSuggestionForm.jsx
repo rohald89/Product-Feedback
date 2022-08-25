@@ -53,8 +53,8 @@ const NewSuggestionForm = () => {
             />
 
             <div className="flex flex-col space-y-4 pt-6 md:flex-row-reverse md:space-y-0 md:gap-4">
-                <button className="bg-mainPurple text-white text-sm font-bold py-3 px-6 rounded-[10px]" type="submit">Add Feedback</button>
-                <button className="bg-veryDarkBlue text-white text-sm font-bold py-3 px-6 rounded-[10px]">Cancel</button>
+                <button className="bg-mainPurple text-white text-sm font-bold py-3 px-6 rounded-[10px] transition hover:bg-mainPurple-hover" type="submit">Add Feedback</button>
+                <button className="bg-darkBlue text-white text-sm font-bold py-3 px-6 rounded-[10px] transition hover:bg-darkBlue-hover">Cancel</button>
             </div>
         </fieldset>
     </form>

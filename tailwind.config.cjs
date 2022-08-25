@@ -22,14 +22,20 @@ module.exports = {
       },
       colors: {
         mainPurple: "#AD1FEA",
+        "mainPurple-hover": "#C75AF6",
         mainBlue: "#4661E6",
+        "mainBlue-hover": "#7C91F9",
         lightBlue: "#62BCFA",
         mainOrange: "#F49F85",
+        mainRed: "#D73737",
+        "mainRed-hover": "#E98888",
         veryDarkBlue: "#373F68",
         darkBlue: "#3A4374",
+        "darkBlue-hover": "#656EA3",
         greyBlue: "#647196",
         lightGrey: "#F7F8FD",
         grey: "#F2F4FF",
+        "grey-hover": "#CFD7FF",
       },
       backgroundImage: {
         "desktop-header":
