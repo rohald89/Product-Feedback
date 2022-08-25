@@ -9,7 +9,7 @@ import SingleSuggestion from "../components/suggestionsList/SingleSuggestion";
 
 const SuggestionDetailPage = () => {
     const { id } = useParams();
-    const { allFeedback } = useSelector((state) => state.feedback);
+    const { allFeedback } = useSelector((state) => state);
 
     const suggestion = allFeedback.filter((suggestion) => suggestion.id == id)[0];
 

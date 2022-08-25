@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -10,10 +11,11 @@ import Input from "../shared/Input"
 import TextArea from "../shared/TextArea"
 
 const NewSuggestionForm = () => {
-  const {categories} = useSelector(state => state.feedback)
+  const {categories} = useSelector(state => state)
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
@@ -24,6 +26,7 @@ const NewSuggestionForm = () => {
     onSubmit: values => {
         values.category = selectedCategory
         dispatch(addFeedback(values))
+        navigate("/")
     },
     validationSchema: Yup.object({
         title: Yup.string()

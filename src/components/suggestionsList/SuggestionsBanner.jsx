@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Banner from "../shared/Banner";
 
 const SuggestionsBanner = () => {
-  const { allFeedback, activeCategory } = useSelector((state) => state.feedback);
+  const { allFeedback, activeCategory } = useSelector((state) => state);
   const navigate = useNavigate();
 
   const suggestions = allFeedback.reduce((acc, curr) => {
