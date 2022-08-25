@@ -5,7 +5,7 @@ import { feedback } from "../data";
 const initialState = {
   allFeedback: feedback,
   categories: ["UI", "UX", "Enhancement", "Bug", "Feature"],
-  activeCategory: "All",
+  activeCategory: "all",
 };
 
 export const feedbackSlice = createSlice({
