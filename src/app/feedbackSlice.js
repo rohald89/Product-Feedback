@@ -25,6 +25,20 @@ export const feedbackSlice = createSlice({
       };
       state.allFeedback.push(newFeedback);
     },
+    updateFeedback: (state, action) => {
+      const { id, updatedFeedback } = action.payload;
+      const existingFeedback = state.allFeedback.find(
+        (feedback) => feedback.id == id
+      );
+      console.log(existingFeedback);
+      console.log(updatedFeedback);
+      if (existingFeedback) {
+        existingFeedback.title = updatedFeedback.title;
+        existingFeedback.description = updatedFeedback.description;
+        existingFeedback.category = updatedFeedback.category;
+        existingFeedback.status = updatedFeedback.status;
+      }
+    },
     addComment: (state, action) => {
       const { id, comment, currentUser } = action.payload;
       const feedback = state.allFeedback.find((feedback) => feedback.id == id);
@@ -58,7 +72,12 @@ export const feedbackSlice = createSlice({
   },
 });
 
-export const { changeCategory, addFeedback, addComment, addReply } =
-  feedbackSlice.actions;
+export const {
+  changeCategory,
+  addFeedback,
+  updateFeedback,
+  addComment,
+  addReply,
+} = feedbackSlice.actions;
 
 export default feedbackSlice.reducer;

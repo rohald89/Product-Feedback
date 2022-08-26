@@ -19,7 +19,7 @@ const RoadMap = () => {
                 const filteredFeedback = inProgress.filter((feedback) => feedback.status === status.name.toLowerCase());
                 return (
 
-            <div className="">
+            <div className="" key={i}>
                 <h1 className="text-md tracking-tighter font-bold">{status.name} ({filteredFeedback.length})</h1>
                 <p className="text-sm text-greyBlue">{ status.description}</p>
                 <div className="space-y-6 mt-6">
