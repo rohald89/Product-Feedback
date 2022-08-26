@@ -47,7 +47,6 @@ export const feedbackSlice = createSlice({
         replyingTo: replyTo,
         user: currentUser,
       };
-      console.log(commentId);
 
       const feedback = state.allFeedback.find((feedback) => feedback.id == id);
       const comment = feedback.comments.find(
