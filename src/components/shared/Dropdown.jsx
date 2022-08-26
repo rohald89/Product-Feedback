@@ -30,7 +30,7 @@ const StatusDropdown = ({ title, description, options, status, setStatus }) => {
             <button
                 onClick={() => setShowMenu(!showMenu )}
                 type="button"
-                className="inline-flex justify-between items-center w-full rounded-md shadow-sm px-4 py-2 bg-lightGrey text-sm font-medium text-veryDarkBlue focus:outline-mainBlue dark:bg-darkGrey "
+                className="inline-flex justify-between capitalize items-center w-full rounded-md shadow-sm px-4 py-2 bg-lightGrey text-sm font-medium text-veryDarkBlue focus:outline-mainBlue dark:bg-darkGrey "
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -59,7 +59,7 @@ const StatusDropdown = ({ title, description, options, status, setStatus }) => {
                         className="flex justify-between text-greyBlue px-4 py-2 text-sm border-b border-grey hover:text-mainPurple hover:bg-opacity-10"
                     >
                             {option}
-                            {option === status && <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"/></svg>
+                            {option.toLowerCase() === status.toLowerCase() && <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"/></svg>
                             }
                         </a>
                     ))}

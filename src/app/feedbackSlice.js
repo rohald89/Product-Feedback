@@ -30,14 +30,24 @@ export const feedbackSlice = createSlice({
       const existingFeedback = state.allFeedback.find(
         (feedback) => feedback.id == id
       );
-      console.log(existingFeedback);
-      console.log(updatedFeedback);
+
       if (existingFeedback) {
         existingFeedback.title = updatedFeedback.title;
         existingFeedback.description = updatedFeedback.description;
         existingFeedback.category = updatedFeedback.category;
         existingFeedback.status = updatedFeedback.status;
       }
+    },
+    deleteFeedback: (state, action) => {
+      console.log("deleteFeedback", action.payload);
+      const { id } = action.payload;
+      //   state.allFeedback = state.allFeedback.filter(
+      //     (feedback) => feedback.id !== id
+      //   );
+      state.allFeedback = state.allFeedback.filter(
+        (feedback) => feedback.id != id
+      );
+      console.log("state.allFeedback", state.allFeedback);
     },
     addComment: (state, action) => {
       const { id, comment, currentUser } = action.payload;
@@ -86,6 +96,7 @@ export const {
   upvoteFeedback,
   addFeedback,
   updateFeedback,
+  deleteFeedback,
   addComment,
   addReply,
 } = feedbackSlice.actions;
