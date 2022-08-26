@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion';
+import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const AddReplyForm = ({open, setOpen}) => {
+import { addReply } from '../../app/feedbackSlice';
+import { useParams } from 'react-router-dom';
+
+const AddReplyForm = ({open, setOpen, replyTo, commentId}) => {
+  const {currentUser} = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const { id } = useParams();
+
     const container = {
         active: {
             height: 'auto',
@@ -33,7 +42,15 @@ const AddReplyForm = ({open, setOpen}) => {
             reply: ""
         },
         onSubmit: (values) => {
-            console.log(values)
+            console.log(values, replyTo)
+            dispatch(addReply({
+                id,
+                commentId,
+                reply: values.reply,
+                replyTo,
+                currentUser}))
+            formik.resetForm()
+            setOpen(false)
         },
         validationSchema: Yup.object({
             reply: Yup.string().max("250", "Reply must be less than 250 characters").required("Reply is required")

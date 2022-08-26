@@ -14,18 +14,18 @@ const SingleComment = ({comment}) => {
                     <h3 className="text-sm font-bold tracking-tight text-veryDarkBlue">{comment.user.name}</h3>
                     <p className="text-body-sm text-greyBlue">@{comment.user.username}</p>
                 </div>
-                <button className="text-mainBlue font-bold" onClick={() => setOpen(!open)}>Reply</button>
+                <button className="text-mainBlue font-bold hover:underline" onClick={() => setOpen(!open)}>Reply</button>
             </div>
             <p className="text-greyBlue text-body-sm col-span-2 md:col-span-1 md:col-start-2">
                 {comment.content}
             </p>
-            <AddReplyForm open={open} setOpen={setOpen}/>
+            <AddReplyForm open={open} setOpen={setOpen} replyTo={comment.user.username} commentId={comment.id}/>
         </div>
         {
             comment.replies && (
                 <div className="mt-2">
                     {comment.replies.map((reply, i) => (
-                        <SingleReply key={i} reply={reply} replyTo={comment.user.name} isLast={i === comment.replies.length - 1} />
+                        <SingleReply key={i} reply={reply} replyTo={comment.user.name} isLast={i === comment.replies.length - 1} commentId={comment.id} />
                     ))}
                 </div>
             )

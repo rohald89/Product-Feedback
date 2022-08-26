@@ -31,15 +31,35 @@ export const feedbackSlice = createSlice({
 
       const newComment = {
         id: uuidv4(),
+        feedbackId: id,
         content: comment,
         user: currentUser,
+        replies: [],
       };
       feedback.comments.push(newComment);
+    },
+    addReply: (state, action) => {
+      const { id, commentId, reply, replyTo, currentUser } = action.payload;
+      const newReply = {
+        feedbackId: id,
+        commentId,
+        content: reply,
+        replyingTo: replyTo,
+        user: currentUser,
+      };
+      console.log(commentId);
+
+      const feedback = state.allFeedback.find((feedback) => feedback.id == id);
+      const comment = feedback.comments.find(
+        (comment) => comment.id == commentId
+      );
+      console.log(comment, feedback);
+      comment.replies = [...comment.replies, newReply];
     },
   },
 });
 
-export const { changeCategory, addFeedback, addComment } =
+export const { changeCategory, addFeedback, addComment, addReply } =
   feedbackSlice.actions;
 
 export default feedbackSlice.reducer;
