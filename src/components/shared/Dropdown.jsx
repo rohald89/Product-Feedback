@@ -1,21 +1,11 @@
-/* TODO */
-
-// const Dropdown = ({title, description, options}) => {
-//     return (
-//       <label className="text-veryDarkBlue text-sm font-bold tracking-tight block">
-//           {title}
-//           <span className="block text-greyBlue font-normal text-body-sm mt-1">{description}</span>
-//           <input type="text" className="py-3 px-6 mt-4 rounded-md w-full bg-lightGrey"/>
-//       </label>
-//     )
-//   }
-//   export default Dropdown
-
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const StatusDropdown = ({ title, description, options, status, setStatus }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const dropdownRef = useRef();
+  useOnClickOutside(dropdownRef, () => setShowMenu(false));
 
   const menuVariations = {
     closed: {
@@ -31,7 +21,7 @@ const StatusDropdown = ({ title, description, options, status, setStatus }) => {
 }
 
   return (
-    <div>
+    <div ref={dropdownRef}>
         <label className="text-veryDarkBlue text-sm font-bold tracking-tight block">
             {title}
             <span className="block text-greyBlue font-normal text-body-sm mt-1">{description}</span>
