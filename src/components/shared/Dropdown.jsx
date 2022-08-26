@@ -41,7 +41,7 @@ const StatusDropdown = ({ title, description, options, status, setStatus }) => {
                 </svg>
             </button>
             <motion.div
-            className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white focus:outline-none"
+            className="z-10 origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white focus:outline-none"
             variants={menuVariations}
             initial="closed"
             animate={showMenu ? "open" : "closed"}>
