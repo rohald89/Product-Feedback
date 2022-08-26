@@ -14,7 +14,7 @@ const RoadMapTabs = ({activeTab, setActiveTab, tasks}) => {
                     className={`capitalize text-sm font-bold border-b-4 py-5 ${activeTab !== name && "opacity-40 border-b-transparent"} ${color === "orange" ? "border-mainOrange" : color === "purple" ? "border-mainPurple" : "border-lightBlue"}`}
                     onClick={() => setActiveTab(name)}
                 >
-                    {name} ({tasks.reduce((acc, curr) => {curr.status === name.toLowerCase() && acc++; return acc}, 0)})
+                    {name} ({tasks.reduce((acc, curr) => {curr.status.toLowerCase() === name.toLowerCase() && acc++; return acc}, 0)})
                 </button>
             ))
         }

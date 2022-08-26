@@ -15,13 +15,13 @@ const MobileRoadMap = () => {
     { name: "Live", description: "Released features", color: "blue"},
   ];
 
-  const filteredFeedback = inProgress.filter((feedback) => feedback.status === activeTab.toLowerCase())
+  const filteredFeedback = inProgress.filter((feedback) => feedback.status.toLowerCase() === activeTab.toLowerCase())
 
   return (
     <div>
         <RoadMapTabs activeTab={activeTab} setActiveTab={setActiveTab} tasks={inProgress} />
         <div className="p-6">
-            <h1 className="text-md tracking-tighter font-bold">{activeTab} ({inProgress.reduce((acc, curr) => {curr.status === activeTab.toLowerCase() && acc++; return acc}, 0)})</h1>
+            <h1 className="text-md tracking-tighter font-bold">{activeTab} ({inProgress.reduce((acc, curr) => {curr.status.toLowerCase() === activeTab.toLowerCase() && acc++; return acc}, 0)})</h1>
             <p className="text-sm text-greyBlue">{ statuses.find(status => status.name === activeTab).description}</p>
             <div className="space-y-6 mt-6">
             {

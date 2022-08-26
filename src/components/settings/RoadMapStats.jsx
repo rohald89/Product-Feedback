@@ -26,7 +26,7 @@ const RoadMapStats = () => {
                         <p className="flex-grow ml-4 text-body-lg">{status.name}</p>
                         <p>
                             {inProgress.reduce((acc, curr) => {
-                                if (status.name.toLowerCase() === curr.status) {
+                                if (status.name.toLowerCase() === curr.status.toLowerCase()) {
                                 acc++;
                                 }
                                 return acc;
