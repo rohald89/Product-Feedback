@@ -8,9 +8,22 @@ const initialState = {
 export const feedbackSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    addUpvote: (state, action) => {
+      const { id } = action.payload;
+      if (!state.currentUser.upvotes.includes(id)) {
+        state.currentUser.upvotes.push(id);
+      } else {
+        state.currentUser.upvotes.splice(
+          state.currentUser.upvotes.indexOf(id),
+          1
+        );
+      }
+      console.log(state.currentUser.upvotes);
+    },
+  },
 });
 
-export const {} = feedbackSlice.actions;
+export const { addUpvote } = feedbackSlice.actions;
 
 export default feedbackSlice.reducer;

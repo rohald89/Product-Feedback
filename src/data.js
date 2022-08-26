@@ -2,6 +2,7 @@ export const currentUser = {
   image: "/img/user-images/image-zena.jpg",
   name: "Zena Kelley",
   username: "velvetround",
+  upvotes: [],
 };
 
 export const feedback = [

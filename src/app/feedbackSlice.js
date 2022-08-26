@@ -69,11 +69,21 @@ export const feedbackSlice = createSlice({
       console.log(comment, feedback);
       comment.replies = [...comment.replies, newReply];
     },
+    upvoteFeedback: (state, action) => {
+      const { id, currentUser } = action.payload;
+      const feedback = state.allFeedback.find((fb) => fb.id == id);
+      if (!currentUser.upvotes.includes(id)) {
+        feedback.upvotes++;
+      } else {
+        feedback.upvotes--;
+      }
+    },
   },
 });
 
 export const {
   changeCategory,
+  upvoteFeedback,
   addFeedback,
   updateFeedback,
   addComment,
