@@ -81,7 +81,7 @@ const EditSuggestionForm = () => {
                 className="bg-mainRed text-white text-sm font-bold py-3 px-6 rounded-[10px] transition hover:bg-mainRed-hover md:mr-auto"
                 type="button"
                 onClick={() => {
-                    dispatch(deleteFeedback({id}))
+                    dispatch(deleteFeedback(id))
                     navigate('/')
                 }}
                 >Delete</button>

@@ -40,10 +40,7 @@ export const feedbackSlice = createSlice({
     },
     deleteFeedback: (state, action) => {
       console.log("deleteFeedback", action.payload);
-      const { id } = action.payload;
-      //   state.allFeedback = state.allFeedback.filter(
-      //     (feedback) => feedback.id !== id
-      //   );
+      const id = action.payload;
       state.allFeedback = state.allFeedback.filter(
         (feedback) => feedback.id != id
       );
