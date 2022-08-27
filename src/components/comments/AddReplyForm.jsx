@@ -61,6 +61,7 @@ const AddReplyForm = ({open, setOpen, replyTo, commentId}) => {
     <>
         <motion.div
             variants={container}
+            initial="disabled"
             animate={open ? "active" : "disabled"}
             className="w-full col-span-full md:col-start-2"
         >
@@ -68,6 +69,7 @@ const AddReplyForm = ({open, setOpen, replyTo, commentId}) => {
             className="flex flex-col items-start w-full md:flex-row"
             onSubmit={formik.handleSubmit}
             variants={form}
+            initial="disabled"
             animate={open ? "active" : "disabled"}
             >
                 <textarea
