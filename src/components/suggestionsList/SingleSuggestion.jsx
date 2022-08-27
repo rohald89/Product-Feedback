@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { upvoteFeedback } from "../../app/feedbackSlice";
 import { addUpvote} from "../../app/userSlice";
 
-const SingleSuggestion = ({feedback}) => {
+const SingleSuggestion = ({feedback, index}) => {
   const {currentUser} = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const {id, title, description, category, upvotes, comments} = feedback
@@ -15,7 +16,12 @@ const SingleSuggestion = ({feedback}) => {
     dispatch(addUpvote({id}))
   }
   return (
-        <div className="grid grid-cols-2 gap-4 bg-white rounded-[10px] p-6 md:flex md:items-center">
+        <motion.div
+        className="grid grid-cols-2 gap-4 bg-white rounded-[10px] p-6 md:flex md:items-center"
+        initial={{ opacity: 0, translateY: 50 }}
+        animate={{ opacity: 1, translateY: 0 }}
+        transition={{ duration: .3, delay: index * .1 }}
+        >
             <Link to={`/suggestions/${id}`} className="group col-span-2 flex flex-col items-start space-y-2 md:flex-1">
                 <h3 className="text-sm font-bold tracking-tight text-veryDarkBlue transition group-hover:text-mainBlue">{title}</h3>
                 <p className="text-body-sm text-greyBlue">{description}</p>
@@ -32,7 +38,7 @@ const SingleSuggestion = ({feedback}) => {
                 <img src="/img/shared/icon-comments.svg" className="" />
                 <p className={`${!comments && "opacity-50"} text-body-sm text-veryDarkBlue`}>{comments ? comments.length : "0"}</p>
             </div>
-        </div>
+        </motion.div>
   )
 }
 export default SingleSuggestion

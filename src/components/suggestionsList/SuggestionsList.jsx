@@ -17,8 +17,8 @@ const SuggestionsList = () => {
     return (
     <div className="flex flex-col space-y-4 pt-8 px-6 md:p-0">
         {
-            suggestions.length === 0 ? <NoSuggestionsFound /> : suggestions.map((feedback) => (
-                <SingleSuggestion key={feedback.id} feedback={feedback}/>
+            suggestions.length === 0 ? <NoSuggestionsFound /> : suggestions.map((feedback, i) => (
+                <SingleSuggestion key={feedback.id} index={i} feedback={feedback}/>
             ))
         }
     </div>

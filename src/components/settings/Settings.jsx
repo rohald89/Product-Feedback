@@ -22,7 +22,13 @@ const Settings = () => {
             opacity : 1,
         }
     } : {
-
+        closed: {
+            transform : "translateX(0%)",
+            opacity : 1,
+            transition: {
+                duration: 0,
+            }
+        }
     };
 
     const toggleNavigation = () => {
@@ -37,7 +43,7 @@ const Settings = () => {
         {/* <aside className={`col-span-2 flex-col space-y-6 p-6 bg-lightGrey md:space-y-0 md:grid md:grid-cols-2 md:m-0 md:p-0 md:col-span-2 md:gap-3 lg:flex lg:flex-col lg:gap-6`}> */}
         <motion.aside
         variants={variants}
-        initial="open"
+        initial={isMobile ? "closed" : false}
         animate={isOpen ?  "open" : "closed"}
         className={`
         absolute right-0 w-3/4 h-full flex-col space-y-6 p-6 bg-lightGrey
