@@ -2,7 +2,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { changeCategory } from "../../app/feedbackSlice"
 
 const CategoryMenu = () => {
-  const { categories, activeCategory} = useSelector((state) => state.feedback)
+  const { activeCategory} = useSelector((state) => state.feedback)
+  const categories = ["UI", "UX", "Enhancement", "Bug", "Feature"]
   const dispatch = useDispatch()
 
   return (

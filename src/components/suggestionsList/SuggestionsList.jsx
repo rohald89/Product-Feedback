@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux"
+import { getSuggestions } from "../../app/feedbackSlice"
 import NoSuggestionsFound from "./NoSuggestionsFound"
 import SingleSuggestion from "./SingleSuggestion"
 
-const SuggestionsList = ({suggestions}) => {
+const SuggestionsList = () => {
+    const suggestions = useSelector(getSuggestions)
+
+
     return (
     <div className="flex flex-col space-y-4 pt-8 px-6 md:p-0">
         {
