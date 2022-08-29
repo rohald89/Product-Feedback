@@ -85,12 +85,48 @@ export const feedbackSlice = createSlice({
         feedback.upvotes--;
       }
     },
+    // getFilteredFeedback: (state) => {
+    //   console.log(state);
+    //   if (state.activeCategory.toLowerCase() == "all") {
+    //     return state.allFeedback;
+    //   } else {
+    //     return state.allFeedback.filter(
+    //       (feedback) => feedback.category == state.activeCategory
+    //     );
+    //   }
+    // },
+    sortFeedback: (state, action) => {
+      const { sortBy } = action.payload;
+      const suggestions = state.allFeedback.filter(
+        (feedback) => feedback.status == "suggestion"
+      );
+      const filteredSuggestions = suggestions.filter(
+        (feedback) => feedback.category == state.activeCategory
+      );
+      switch (sortBy) {
+        case "Most Upvotes":
+          return filteredSuggestions.sort((a, b) => a.upvotes - b.upvotes);
+        case "Least Upvotes":
+          return filteredSuggestions.sort((a, b) => b.upvotes - a.upvotes);
+        case "Most Comments":
+          return filteredSuggestions.sort(
+            (a, b) => a.comments.length - b.comments.length
+          );
+        case "Least Comments":
+          return filteredSuggestions.sort(
+            (a, b) => b.comments.length - a.comments.length
+          );
+        default:
+          return filteredSuggestions;
+      }
+    },
   },
 });
 
 export const {
   changeCategory,
   upvoteFeedback,
+  //   getFilteredFeedback,
   addFeedback,
   updateFeedback,
   deleteFeedback,

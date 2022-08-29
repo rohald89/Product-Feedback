@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 import SuggestionsList from "../components/suggestionsList"
 import Settings from "../components/settings"
@@ -6,11 +6,15 @@ import SuggestionsBanner from "../components/suggestionsList/SuggestionsBanner"
 import PageWrapper from "../components/shared/PageWrapper"
 import { useEffect, useState } from "react"
 
+// import { getFilteredFeedback } from "../app/feedbackSlice"
+
 const SuggestionsPage = () => {
     const stortingOptions = ["Most Upvotes", "Least Upvotes", "Most Comments", "Least Comments"];
 
     const { allFeedback, activeCategory } = useSelector((state) => state.feedback)
     const [sortBy, setSortBy] = useState("Most Upvotes");
+
+    // const dispatch = useDispatch();
     const [filteredFeedback, setFilteredFeedback] = useState(allFeedback.filter((suggestion) => {
         if (activeCategory.toLowerCase() === "all") {
             return suggestion.status === "suggestion"
@@ -19,13 +23,16 @@ const SuggestionsPage = () => {
         }
       }));
 
+    // const feedback = dispatch(getFilteredFeedback())
+
+    // console.log(feedback);
+
     useEffect(() => {
         setFilteredFeedback(sortSuggestions(sortBy));
     }, [sortBy])
 
     const sortSuggestions = (sortBy) => {
         console.log('Sorting by:', sortBy);
-        console.log(filteredFeedback)
       switch (sortBy) {
           case "Most Upvotes":
               return filteredFeedback.sort((a, b) => a.upvotes - b.upvotes)
