@@ -11,10 +11,13 @@ import Input from "../shared/Input"
 import TextArea from "../shared/TextArea"
 
 const EditSuggestionForm = () => {
-    const {id} = useParams()
-    const {categories, allFeedback} = useSelector(state => state.feedback)
-    const feedback = allFeedback.filter(feedback => feedback.id == id)[0]
+  const { id } = useParams()
+  const { allFeedback } = useSelector(state => state.feedback)
+  const feedback = allFeedback.filter(feedback => feedback.id == id)[0]
+
+  const categories = ["UI", "UX", "Enhancement", "Bug", "Feature"]
   const statuses = ["Suggestion", "In-Progress", "Planned", "Live"]
+
   const [selectedCategory, setSelectedCategory] = useState(feedback.category)
   const [selectedStatus, setSelectedStatus] = useState(feedback.status)
 

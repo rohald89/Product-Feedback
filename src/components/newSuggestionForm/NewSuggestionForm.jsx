@@ -11,7 +11,7 @@ import Input from "../shared/Input"
 import TextArea from "../shared/TextArea"
 
 const NewSuggestionForm = () => {
-  const {categories} = useSelector(state => state.feedback)
+  const categories = ["UI", "UX", "Enhancement", "Bug", "Feature"]
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
 
   const dispatch = useDispatch()
